@@ -1,0 +1,32 @@
+.main-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.main-navigation__user-menu {
+  .reset-list();
+  display: none;
+}
+
+.main-navigation__user-popup-menu {
+  .reset-list();
+  display: none;
+}
+
+.main-navigation__toggle {
+  padding: 0;
+  margin: 0;
+  padding-top: 20px;
+  border: none;
+  background-color: transparent;
+}
+
+.main-navigation__toggle-icon {
+  fill: @background-color-white;
+
+  &--opened {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+.service {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    font-family: @font-family-alternative;
+    font-size: 15px;
+    font-weight: normal;
+    color: @text-color-dark-gray;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    background-color: @background-color-white;
+  }
+}
+
+.service__links {
+  .reset-list();
+  column-count: 2;
+
+  a {
+    font-size: 12px;
+    line-height: 2.1;
+    color: @link-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

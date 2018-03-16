@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <link href="css/style.css" rel="stylesheet" />
+  <title>Оформление заказа</title>
+</head>
+<body>
+  <!--SVG Sprite-->
+  <div style="display:none">
+    <svg xmlns="http://www.w3.org/2000/svg">
+      <symbol id="icon-menu-burger" viewBox="0 0 50 24">
+        <path d="M1.1 0C.5 0 0 .4 0 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1V1c0-.6-.5-1-1.1-1H1.1zm0 10c-.6 0-1.1.4-1.1 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1v-2c0-.6-.5-1-1.1-1H1.1zm0 10c-.6 0-1.1.4-1.1 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1v-2c0-.6-.5-1-1.1-1H1.1z"/>
+        <path d="M1.1 0C.5 0 0 .4 0 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1V1c0-.6-.5-1-1.1-1H1.1zm0 10c-.6 0-1.1.4-1.1 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1v-2c0-.6-.5-1-1.1-1H1.1zm0 10c-.6 0-1.1.4-1.1 1v2c0 .6.5 1 1.1 1h47.7c.6 0 1.1-.4 1.1-1v-2c0-.6-.5-1-1.1-1H1.1z"/>
+      </symbol>
+      <symbol id="icon-menu-cross">
+        <path d="M15.087 11.933l8.56-8.559a.75.75 0 0 0 0-1.061L21.554.22a.747.747 0 0 0-1.06 0l-8.561 8.56L3.373.22a.771.771 0 0 0-1.061 0L.22 2.313a.75.75 0 0 0 0 1.061l8.56 8.559-8.56 8.559a.751.751 0 0 0 0 1.062l2.093 2.094a.744.744 0 0 0 1.06 0l8.561-8.56 8.56 8.56a.746.746 0 0 0 1.06 0l2.093-2.094a.751.751 0 0 0 0-1.062l-8.56-8.559z"/>
+      </symbol>
+      <symbol id="basket" viewBox="0 0 50 50" >
+        <path d="M37.3,31.1H15.1l-0.8-3.9h22.6l1.9-9.7H12.4l-0.8-4c-0.1-0.4-0.4-0.6-0.8-0.5c-0.4,0.1-0.6,0.4-0.5,0.8
+        c0,0,0,0,0,0L14,32c0.1,0.3,0.3,0.5,0.6,0.5h3L17,33c-1,0.9-1.4,2.3-1,3.5c0.9,2.6,3.8,3.1,5.5,1.5c1.4-1.3,1.5-3.4,0.2-4.8
+        c-0.1-0.1-0.2-0.2-0.2-0.2l-0.6-0.5h8.4l-0.7,0.6c-0.9,0.9-1.4,2.2-1,3.4c0.8,2.6,3.8,3.2,5.6,1.6c1.4-1.3,1.5-3.4,0.2-4.8
+        c-0.1-0.1-0.2-0.2-0.2-0.2l-0.6-0.5h4.7c0.4,0,0.7-0.3,0.7-0.7C38,31.4,37.7,31.1,37.3,31.1C37.3,31.1,37.3,31.1,37.3,31.1z
+        M14.1,25.9l-1.4-7h24.5l-1.3,7H14.1z M21.4,35.5c0,1.1-0.9,2-2,2c-1.1,0-2-0.9-2-2s0.9-2,2-2C20.5,33.5,21.4,34.4,21.4,35.5
+        L21.4,35.5z M30.9,37.5c-1.1,0-1.8-0.8-1.8-2c0-1.2,0.8-2,2.1-1.9c1.2,0,1.8,0.8,1.8,2C33,36.7,32,37.5,30.9,37.5z"/>
+        <circle fill="none" stroke-width="2" stroke-miterlimit="10" cx="25" cy="25" r="24.1"/>
+      </symbol>
+      <symbol id="delivery-box" viewBox="0 0 50 50">
+        <g>
+          <circle fill="none" stroke-width="2" stroke-miterlimit="10" cx="25" cy="25" r="24.1"/>
+        </g>
+        <g>
+          <path d="M13.1,36.8H38c0.3,0,0.5-0.2,0.5-0.5c0,0,0,0,0,0V17.9c0,0,0-0.1,0-0.1c0,0,0,0,0,0c0,0,0,0,0-0.1
+          c0,0,0,0,0,0s0,0,0,0s0,0,0,0c0,0,0,0,0,0L33,11.1c-0.1-0.1-0.3-0.2-0.4-0.2H18.5c-0.2,0-0.3,0.1-0.4,0.2l-5.4,6.5c0,0,0,0,0,0
+          c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0,0,0c0,0,0,0.1,0,0.1v18.4C12.5,36.5,12.8,36.8,13.1,36.8z M26.1,11.9
+          h6.3l4.5,5.5H26.1V11.9z M18.7,11.9H25v5.5H14.2L18.7,11.9z M13.6,18.4h23.8v17.3H13.6C13.6,35.7,13.6,18.4,13.6,18.4z"/>
+          <path d="M25,29.9L21.2,25c-0.1-0.1-0.4-0.1-0.7,0.1c-0.3,0.2-0.4,0.5-0.3,0.7l3.8,4.9c0.1,0.1,0.4,0.1,0.7-0.1
+          C25,30.3,25.1,30,25,29.9z"/>
+          <path d="M30,23.6l-6.3,6.1c-0.2,0.2-0.1,0.5,0.1,0.8c0.3,0.3,0.6,0.3,0.8,0.2l6.3-6.1c0.2-0.2,0.1-0.5-0.1-0.8
+          S30.2,23.4,30,23.6C30,23.6,30,23.6,30,23.6z"/>
+        </g>
+      </symbol>
+      <symbol id="wallet" viewBox="0 0 50 50">
+        <g>
+          <circle fill="none" stroke-width="2" stroke-miterlimit="10" cx="25" cy="25" r="24.1"/>
+        </g>
+        <g>
+        <path d="M36,13.6H15.4c-1.8,0-3.2,1.3-3.2,2.9v16.9c0,1.6,1.4,2.9,3.2,2.9H36c1.8,0,3.2-1.3,3.2-2.9V16.5
+        C39.2,14.9,37.8,13.6,36,13.6z M37.9,30.5h-7.7c-1.8,0-3.2-1.3-3.2-2.9s1.4-2.9,3.2-2.9h7.7V30.5z M37.9,23.5h-7.7
+        c-2.5,0-4.5,1.8-4.5,4.1s2,4.1,4.5,4.1h7.7v1.7c0,1-0.9,1.7-1.9,1.7H15.4c-1.1,0-1.9-0.8-1.9-1.7V18.9c0.5,0.4,1.2,0.6,1.9,0.6H36
+        c1.1,0,1.9,0.8,1.9,1.7V23.5z M37.9,18.9c-0.5-0.4-1.2-0.6-1.9-0.6H15.4c-1.1,0-1.9-0.8-1.9-1.7c0-1,0.9-1.7,1.9-1.7H36
+        c1.1,0,1.9,0.8,1.9,1.7V18.9z"/>
+        <path d="M28.6,27.5c0,1,0.8,1.8,1.8,1.8c1,0,1.8-0.8,1.8-1.8s-0.8-1.8-1.8-1.8C29.4,25.7,28.6,26.5,28.6,27.5
+        L28.6,27.5z M31.1,27.5c0,0.3-0.3,0.6-0.6,0.6s-0.6-0.3-0.6-0.6c0-0.3,0.3-0.6,0.6-0.6S31.1,27.2,31.1,27.5L31.1,27.5z"/>
+        </g>
+      </symbol>
+      <symbol id="minus" viewBox="0 0 495 495">
+        <rect y="227.5" width="495" height="40"/>
+      </symbol>
+      <symbol id="plus" viewBox="0 0 495 495">
+        <polygon points="495,227.5 267.5,227.5 267.5,0 227.5,0 227.5,227.5 0,227.5 0,267.5 227.5,267.5 227.5,495
+        267.5,495 267.5,267.5 495,267.5 "/>
+      </symbol>
+      <symbol id="cross" viewBox="0 0 343 343">
+        <polygon points="342.947,21.213 321.734,0 171.473,150.26 21.213,0 0,21.213 150.26,171.473 0,321.734 21.213,342.947
+        171.473,192.686 321.734,342.947 342.947,321.734 192.686,171.473 "/>
+      </symbol>
+      <symbol id="heart" viewBox="0 0 455 455">
+        <path d="M326.632,10.346c-38.733,0-74.991,17.537-99.132,46.92c-24.141-29.384-60.398-46.92-99.132-46.92
+        C57.586,10.346,0,67.931,0,138.714c0,55.426,33.05,119.535,98.23,190.546c50.161,54.647,104.728,96.959,120.257,108.626l9.01,6.769
+        l9.01-6.768c15.529-11.667,70.098-53.978,120.26-108.625C421.949,258.251,455,194.141,455,138.714
+        C455,67.931,397.414,10.346,326.632,10.346z M334.666,308.974c-41.259,44.948-85.648,81.283-107.169,98.029
+        c-21.52-16.746-65.907-53.082-107.166-98.03C61.236,244.592,30,185.717,30,138.714c0-54.24,44.128-98.368,98.368-98.368
+        c35.694,0,68.652,19.454,86.013,50.771l13.119,23.666l13.119-23.666c17.36-31.316,50.318-50.771,86.013-50.771
+        c54.24,0,98.368,44.127,98.368,98.368C425,185.719,393.763,244.594,334.666,308.974z"/>
+      </symbol>
+      <symbol id="delivery-boy" viewBox="0 0 50 50">
+        <path d="M26,0.2c1.2,0.6,2.3,1.3,3.4,1.7c5.2,1.5,7.3,4.1,7.8,9.4c0.2,2,0.7,4,1.2,6c0.5,2,0.2,3.6-1.3,5.1
+        c-0.7,0.6-1.1,1.4-1.5,2.1c-2.2,3.7-5,6.7-9.5,7.3c-1.5,0.2-3.3-0.1-4.5-0.9c-1.9-1.2-3.6-2.8-5.1-4.4c-1.5-1.7-2.8-3.6-3.9-5.5
+        c-0.5-0.9-0.8-2.4-0.4-3.3c1-2.6,1.1-5.4,1.5-8c0.8-4.7,3.1-6.9,7.7-7.9c1.2-0.3,2.3-1.1,3.5-1.6C25.2,0.2,25.6,0.2,26,0.2z
+        M25.4,29.7c3.1-0.3,5.2-2,7-4.6c1.2-1.7,2.3-3.4,3.5-5.2c0.8-1.2,0.3-3-1.1-3.6c-2.1-0.9-4.3-2-6.4-3c-2-0.9-4-1.1-6.1-0.1
+        c-2.3,1.1-4.6,2.1-6.9,3.2c-1.3,0.7-1.9,2-1.2,3.1c1.4,2.1,2.8,4.3,4.3,6.3C20.3,28.1,22.5,29.6,25.4,29.7z M25.4,5.3
+        c0,0.1,0,0.1-0.1,0.1c-0.2,0-0.4,0-0.6,0c-1,0.1-1.9,0.4-2,1.5c-0.1,0.6,0.3,1.4,0.7,1.7c0.9,0.8,3.2,0.7,3.9-0.1
+        c0.4-0.4,0.4-1.3,0.6-2c0-0.2-0.3-0.7-0.6-0.7C26.7,5.7,26,5.5,25.4,5.3z"/>
+        <path d="M3.1,40.5c0.1-0.6,0.2-1.2,0.5-1.7c0.6-0.9,1.2-2.1,2-2.6c3-1.2,6.1-2.2,9.3-3.3c0.1,0.1,0.2,0.3,0.4,0.4
+        c-0.4,0.7-0.9,1.3-1.2,2c-0.2,0.4-0.5,1.1-0.4,1.3c0.2,0.4,0.9,0.5,1.4,0.7c0.1,0.1,0.4,0,0.6,0c5.4-0.4,9,2.9,8.8,8.4
+        c0,1.3-0.4,2.6-0.5,3.9c-0.7,0-1.3,0-2,0c-0.5-0.1-1.1-0.2-1.6-0.3c-4.8-0.4-9.4-1.4-13.9-3.3c-1.3-0.6-2.6-1.2-3.3-2.6
+        C3.1,42.6,3.1,41.6,3.1,40.5z"/>
+        <path d="M27.1,49.7c-0.3-0.5-0.7-1-0.8-1.5c-0.7-4.1,0.9-7.4,3.7-10.1c0.4-0.4,1.2-0.5,1.7-0.6
+        c1.2-0.1,2.3,0,3.5-0.1c1.5-0.1,1.7-0.6,1.2-1.9c-0.3-0.7-0.6-1.2-0.9-1.9c0-0.1,0-0.1,0.1-0.5c3.3,1,6.9,1.2,9.6,3.4
+        c1.2,0.9,1.7,2.6,2.6,4c0,0.7,0,1.5,0,2.3c-0.5,2-1.9,2.9-3.6,3.4c-2.6,0.8-5.2,1.7-7.9,2.3c-2.4,0.6-4.8,0.8-7.2,1.2
+        C28.4,49.7,27.8,49.7,27.1,49.7z M36.8,44.5L36.8,44.5c0.7,0,1.5,0.1,2.2-0.1c0.6-0.2,1.3-0.8,1.4-1.4c0.3-1.2-0.8-2.3-2.1-2.3
+        c-0.9,0-2,0.2-2.9,0.1c-1.5-0.1-2.1,0.3-2.2,1.6c-0.1,1.5,0.4,2,2,2C35.7,44.5,36.3,44.5,36.8,44.5z"/>
+        <path d="M30.8,33.5c-1.1,1.5-2.2,2.9-3.3,4.4c-2.2,2.7-2.2,2.7-4.3,0.1c-1.2-1.5-2.3-2.9-3.3-4.5
+        c3.6,1.1,7.1,1.1,10.7-0.1C30.6,33.4,30.7,33.5,30.8,33.5z"/>
+        <path d="M31.3,17.9c0,0.9-0.4,1.6-1.5,1.6c-1.1,0-1.7-0.5-1.7-1.6c0-1,0.7-1.6,1.5-1.6
+        C30.6,16.4,31.4,16.8,31.3,17.9z"/>
+        <path d="M22.5,18c-0.1,0.9-0.6,1.5-1.6,1.5c-1.1,0-1.6-0.6-1.6-1.7s0.7-1.5,1.6-1.5C21.9,16.4,22.4,17,22.5,18z"
+        />
+        <path d="M22.9,25.1c1.7,0,3.2,0,4.7,0C26.2,27.1,24.6,27.2,22.9,25.1z"/>
+      </symbol>
+      <symbol id="delivery-items" viewBox="0 0 22 28">
+        <g>
+        <path d="M17.9,17.6l-6.4,8.7c-0.3,0.4-0.7,0.4-0.9,0l-6.4-8.7c-0.3-0.4-0.3-0.9,0-1.3l6.4-8.7c0.3-0.4,0.7-0.4,0.9,0l6.4,8.7
+        C18.2,16.7,18.2,17.3,17.9,17.6z"/>
+        <ellipse cx="11.1" cy="10.5" rx="9.8" ry="10"/>
+        <circle fill="#FFFFFF" cx="11.1" cy="10.4" r="4.6"/>
+        </g>
+      </symbol>
+      <symbol id="delivery-postamat" viewBox="0 0 25 25">
+        <path d="M12.5,12h10.8c0.3,0,0.6,0.3,0.6,0.6v11.3c0,0.3-0.3,0.6-0.6,0.6H12.5c-0.3,0-0.6-0.3-0.6-0.6V12.6
+        C11.9,12.3,12.2,12,12.5,12z"/>
+        <circle cx="12.1" cy="12.6" r="11.8"/>
+        <circle fill="#FFFFFF" cx="12.2" cy="12.7" r="6.1"/>
+        <circle cx="12.2" cy="12.7" r="2.1"/>
+      </symbol>
+    </svg>
+  </div>
+  <header class="page-header">
+    <div class="container">
+      <nav class="main-navigation">
+        <a class="logo" href="#">
+          <img src="img/logo.svg" alt="Wildberries">
+        </a>
+        <button class="main-navigation__toggle" type="button">
+          <span class="visually-hidden">Открыть/Закрыть меню</span>
+          <svg class="main-navigation__toggle-icon main-navigation__toggle-icon--opened" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24">
+            <use xlink:href="#icon-menu-cross"></use>
+          </svg>
+          <svg class="main-navigation__toggle-icon main-navigation__toggle-icon--closed" x="0px" y="0px" width="50px" height="27px" viewBox="0 0 50 26">
+            <use xlink:href="#icon-menu-burger"></use>
+          </svg>
+        </button>
+        <ul class="main-navigation__user-menu">
+          <li><a>Личный кабинет</a></li>
+        </ul>
+        <ul class="main-navigation__user-popup-menu popup-menu">
+          <li><a href="#">Товары</a></li>
+          <li><a href="#">Работа с заказом</a></li>
+          <li><a href="#">Профиль</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="container">
+      <h1>Оформление заказа</h1>
+      <ul class="order-steps">
+        <li class="order-steps__item order-steps__item--active ">
+          <a href="#">
+            <svg class="order-steps__item-icon order-steps__item-icon--basket" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+              <use xlink:href="#basket"></use>
+            </svg>
+            <span>Корзина</span>
+          </a>
+        </li>
+        <li class="order-steps__item">
+          <a href="#">
+            <svg class="order-steps__item-icon order-steps__item-icon--delivery" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+              <use xlink:href="#delivery-box"></use>
+            </svg>
+            <span>Доставка</span>
+          </a>
+        </li>
+        <li class="order-steps__item">
+          <a href="#">
+            <svg class="order-steps__item-icon order-steps__item-icon--payment" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+              <use xlink:href="#wallet"></use>
+            </svg>
+            <span>Оплата</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--Список выбранных товаров-->
+    <section>
+      <h2 class="visually-hidden">Список выбранных товаров</h2>
+      <div class="container">
+        <ul class="goods-items">
+          <li class="goods-item">
+            <div class="goods-item__wrapper">
+              <a href="#">
+                <img src="img/2866169-1.jpg" width="80" height="100" alt="Товар">
+              </a>
+              <div class="goods-item__description description">
+                <p class="description__title">
+                  <a href="#">Маленькие куколки. Модели из разных материалов, Хоббитека</a>
+                </p>
+                <p>Артикул: <span>2866169</span></p>
+                <p>Цвет: <span>белый</span></p>
+                <p>Размер: <span>0</span></p>
+              </div>
+              <div class="goods-item__counter-and-price-wrapper">
+                <div class="goods-item__counter counter">
+                  <span class="counter__wrapper">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Уменьшить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--minus" width="10px" height="10px">
+                        <use xlink:href="#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" autocomplete="off" maxlength="2" value="1">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Увеличить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--plus" width="10px" height="10px">
+                        <use xlink:href="#plus"></use>
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+                <div class="goods-item__price price">
+                  <p>
+                    <!--<span class="price__discount"></span>
+                    <span class="price__start"></span>-->
+                    <span class="price__result">370</span>
+                  </p>
+                  <p><span class="price__promo">-10%</span><span class="price__before-promo">370</span><span class="price__after-promo">333</span></p>
+                  <p>
+                    <!--<span class="price__personal-discount"></span>
+                    <span class="price__before-personal-discount"></span>-->
+                    <span class="price__after-personal-discount">333</span>
+                  </p>
+                </div>
+              </div>
+              <div class="goods-item__toolbar toolbar">
+                <button class="toolbar__item" type="button" title="Удалить из корзины">
+                  <span class="visually-hidden">Удалить из корзины</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--delete" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </bitton>
+                <button class="toolbar__item" type="button" title="Отложить товар">
+                  <span class="visually-hidden">Отложить товар</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--postpone" width="14px" height="14px">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </bitton>
+              </div>
+            </div>
+          </li>
+          <li class="goods-item">
+            <div class="goods-item__wrapper">
+              <a href="#">
+                <img src="img/3706400-1.jpg" width="80" height="100" alt="Товар">
+              </a>
+              <div class="goods-item__description description">
+                <p class="description__title description__title--sale">
+                  <a href="#">Брелок-фонарик для ключей LEGO Friends (цвет: лиловый), Lego.</a>
+                </p>
+                <p>Артикул: <span>3706400</span></p>
+                <p>Цвет: <span>лиловый</span></p>
+                <p>Размер: <span>0</span></p>
+              </div>
+              <div class="goods-item__counter-and-price-wrapper">
+                <div class="goods-item__counter counter">
+                  <span class="counter__wrapper">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Уменьшить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--minus" width="10px" height="10px">
+                        <use xlink:href="#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" autocomplete="off" maxlength="2" value="1">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Увеличить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--plus" width="10px" height="10px">
+                        <use xlink:href="#plus"></use>
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+                <div class="goods-item__price price">
+                  <p><span class="price__discount">-30%</span><span class="price__start">500</span><span class="price__result">350</span></p>
+                  <p><span class="price__promo">-10%</span><span class="price__before-promo">350</span><span class="price__after-promo">315</span></p>
+                  <p>
+                    <!--<span class="price__personal-discount"></span>
+                    <span class="price__before-personal-discount"></span>-->
+                    <span class="price__after-personal-discount">315</span>
+                  </p>
+                </div>
+              </div>
+              <div class="goods-item__toolbar toolbar">
+                <button class="toolbar__item" type="button" title="Удалить из корзины">
+                  <span class="visually-hidden">Удалить из корзины</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--delete" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </bitton>
+                <button class="toolbar__item" type="button" title="Отложить товар">
+                  <span class="visually-hidden">Отложить товар</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--postpone" width="14px" height="14px">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </bitton>
+              </div>
+            </div>
+          </li>
+          <li class="goods-item">
+            <div class="goods-item__wrapper">
+              <a href="#">
+                <img src="img/3885915-1.jpg" width="80" height="100" alt="Товар">
+              </a>
+              <div class="goods-item__description description">
+                <p class="description__title description__title--new-collection">
+                  <a href="#">Сумка, EVITA</a>
+                </p>
+                <p>Артикул: <span>3885915</span></p>
+                <p>Цвет: <span>зеленый</span></p>
+                <p>Размер: <span>0</span></p>
+              </div>
+              <div class="goods-item__counter-and-price-wrapper">
+                <div class="goods-item__counter counter">
+                  <span class="counter__wrapper">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Уменьшить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--minus" width="10px" height="10px">
+                        <use xlink:href="#minus"></use>
+                      </svg>
+                    </button>
+                    <input type="text" autocomplete="off" maxlength="2" value="1">
+                    <button class="counter__button" type="button">
+                      <span class="visually-hidden">Увеличить количество</span>
+                      <svg class="counter__button-icon counter__button-icon--plus" width="10px" height="10px">
+                        <use xlink:href="#plus"></use>
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+                <div class="goods-item__price price">
+                  <p>
+                    <!--<span class="price__discount"></span>
+                    <span class="price__start"></span>-->
+                    <span class="price__result">6101</span>
+                  </p>
+                  <p><span class="price__promo">-25%</span><span class="price__before-promo">6101</span><span class="price__after-promo">4575</span></p>
+                  <p><span class="price__personal-discount">-22%</span><span class="price__before-personal-discount">4575</span><span class="price__after-personal-discount">3569</span></p>
+                </div>
+              </div>
+              <div class="goods-item__toolbar toolbar">
+                <button class="toolbar__item" type="button" title="Удалить из корзины">
+                  <span class="visually-hidden">Удалить из корзины</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--delete" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </bitton>
+                <button class="toolbar__item" type="button" title="Отложить товар">
+                  <span class="visually-hidden">Отложить товар</span>
+                  <svg class="toolbar__item-icon toolbar__item-icon--postpone" width="14px" height="14px">
+                    <use xlink:href="#heart"></use>
+                  </svg>
+                </bitton>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="promo-code">
+          <input type="text">
+          <button class="promo-code__apply-button" type="button">Применить промокод</button>
+        </p>
+      </div>
+    </section>
+
+    <!--Выбор способа доставки-->
+    <section class="delivery">
+      <div class="container">
+        <h2>Выберите способ доставки</h2>
+        <p class="delivery__caution">После оформления заказа смена способа доставки невозможна</p>
+        <ul class="delivery__type-items">
+          <li class="delivery__type-item delivery__type-item--active">
+            <a href="#">
+              <svg class="delivery__type-item-icon delivery__type-item-icon--items" width="50px" height="50px">
+                <use xlink:href="#delivery-items"></use>
+              </svg>
+              <span>Самовывоз</span>
+            </a>
+          </li>
+          <li class="delivery__type-item">
+            <a href="#">
+              <svg class="delivery__type-item-icon delivery__type-item-icon--courier" width="50px" height="50px">
+                <use xlink:href="#delivery-boy"></use>
+              </svg>
+              <span>Доставка курьером</span>
+            </a>
+          </li>
+          <li class="delivery__type-item">
+            <a href="#">
+              <svg class="delivery__type-item-icon delivery__type-item-icon--postamat" width="50px" height="50px">
+                <use xlink:href="#delivery-postamat"></use>
+              </svg>
+              <span>Постамат</span>
+            </a>
+          </li>
+        </ul>
+        <div class="delivery__type-description">
+          <h3>Забрать заказ самостоятельно</h3>
+          <div class="delivery__points">
+            <div class="delivery__point">
+              <input id="dp1" name="delivery-point" type="radio" checked>
+              <label for="dp1">г. Пермь (Пермский край), ул. 25 Октября, 29</label>
+              <span class="workload-chart">
+                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+              </span>
+              <div class="delivery__buttons-wrapper">
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Показать на карте</span>
+                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                    <use xlink:href="#delivery-items"></use>
+                  </svg>
+                </button>
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Удалить</span>
+                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="delivery__point">
+              <input id="dp2" name="delivery-point" type="radio">
+              <label for="dp2">г. Пермь (Пермский край), ул. Маршала Рыбалко, 30</label>
+              <span class="workload-chart">
+                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+              </span>
+              <div class="delivery__buttons-wrapper">
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Показать на карте</span>
+                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                    <use xlink:href="#delivery-items"></use>
+                  </svg>
+                </button>
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Удалить</span>
+                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="delivery__point">
+              <input id="dp3" name="delivery-point" type="radio">
+              <label for="dp3">г. Пермь (Пермский край), ул. Мира, 59</label>
+              <span class="workload-chart">
+                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+                <div class="workload-chart__item workload-chart__item--middle"></div>
+              </span>
+              <div class="delivery__buttons-wrapper">
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Показать на карте</span>
+                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                    <use xlink:href="#delivery-items"></use>
+                  </svg>
+                </button>
+                <button class="delivery__button" type="button">
+                  <span class="visually-hidden">Удалить</span>
+                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                    <use xlink:href="#cross"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+          <button class="delivery__add-point-button" type="button">Добавить пункт самовывоза</button>
+          <p class="delivery__additional-info">В пунктах самовывоза возможна наличная и безналичная оплата.
+  Во всех пунктах Вы можете воспользоваться удобными примерочными.
+  Если товар не подошёл, Вы можете сразу вернуть его менеджеру пункта самовывоза.</p>
+        </div>
+        <div class="delivery__type-description">
+          <h3>Заказать доставку курьером по адресу</h3>
+          <p class="delivery__additional-info">В случае указания полного адреса (этаж, подъезд, домофон или код), курьеру не нужно будет уточнять его дополнительно.</p>
+          <button class="delivery__add-address-button" type="button">Добавить адрес</button>
+        </div>
+        <div class="delivery__type-description">
+          <h3>Забрать заказ в постамате</h3>
+          <button class="delivery__add-postamat-button" type="button">Добавить постамат</button>
+          <p class="delivery__additional-info">Примерка отсутствует.</p>
+        </div>
+      </div>
+    </section>
+
+    <!--Выбор способа оплаты-->
+    <section class="payment">
+      <div class="container">
+        <h2>Выберите способ оплаты</h2>
+        <ul class="payment__type-items">
+          <li class="payment__type-item payment__type-item--active payment__type-item--cash">
+            <a href="#">
+              <span>Оплата при получении</span>
+            </a>
+          </li>
+          <li class="payment__type-item payment__type-item--balance">
+            <a href="#">
+              <span>Мой баланс</span>
+            </a>
+          </li>
+          <li class="payment__type-item payment__type-item--card">
+            <a href="#">
+              <span>Онлайн оплата картой</span>
+            </a>
+          </li>
+          <li class="payment__type-item payment__type-item--yamoney">
+            <a href="#">
+              <span>Яндекс Деньги</span>
+            </a>
+          </li>
+          <li class="payment__type-item payment__type-item--webmoney">
+            <a href="#">
+              <span>WebMoney</span>
+            </a>
+          </li>
+          <li class="payment__type-item payment__type-item--paypal">
+            <a href="#">
+              <span>Paypal</span>
+            </a>
+          </li>
+        </ul>
+        <div class="payment__description">
+          <p>
+            Вы можете оплатить свой заказ наличными при доставке курьером и в пунктах самовывоза.
+          </p>
+          <p>
+            Также Вы можете произвести оплату банковской картой курьеру с помощью специальных переносных мобильных терминалов.
+          </p>
+          <p>
+            Мы принимаем платежи по следующим банковским картам: Visa, Visa Electron, MasterCard, Maestro.
+          </p>
+          <p>
+            Мы не принимаем к оплате банковские карты: American Express, STB, Cirrus, Diners Club International.
+          </p>
+        </div>
+        <div class="payment__description">
+          <p>Вам доступно 0 руб.</p>
+        </div>
+        <div class="payment__description">
+          <p class="caution">Заказ будет оформлен на доставку после поступления оплаты</p>
+          <p>
+            Уважаемые Клиенты! Обращаем Ваше внимание на то, что в связи с ограничениями стандартов безопасности платежных шлюзов PCI DSS, возникают трудности с возвратами денежных средств на банковские счета, начинающиеся на 302*******. Ограничения связаны с передачей номера карты для совершения транзакции.
+          </p>
+          <p>
+            Онлайн оплата банковской картой возможна через системы электронных платежей.
+            Минимальная сумма платежа — 1 руб.
+            Максимальная сумма платежа отсутствует.
+          </p>
+          <p>
+            Мы принимаем платежи с сайта по следующим банковским картам: VISA, MasterCard, Maestro, American Express, JCB, МИР.
+            Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.
+          </p>
+          <p class="caution">Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).</p>
+        </div>
+        <div class="payment__description">
+          <p class="caution">
+            Заказ будет оформлен на доставку после поступления оплаты
+          </p>
+          <p>
+            Оплата по электронным кошелькам возможна через системы электронных платежей.
+          </p>
+          <p class="caution">
+            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+          </p>
+        </div>
+        <div class="payment__description">
+          <p class="caution">
+            Заказ будет оформлен на доставку после поступления оплаты
+          </p>
+          <p>
+            Оплата по электронным кошелькам возможна через системы электронных платежей.
+          </p>
+          <p class="caution">
+            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+          </p>
+        </div>
+        <div class="payment__description">
+          <p>
+            PayPal — быстрый и безопасный способ оплаты покупок в Интернете.
+          </p>
+          <p>
+            Сведения о вашей банковской карте или счете всегда в безопасности благодаря самым совершенным системам автоматического шифрования и защиты от мошенничества.
+          </p>
+          <p>
+            Привяжите свою банковскую карту или банковский счет к учетной записи PayPal, и Вам больше никогда не придется вводить номер банковской карты для оплаты.
+          </p>
+          <p class="caution">
+            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--Итоговая сумма покупки-->
+    <div class="summary__wrapper">
+      <div class="container">
+        <table class="summary">
+          <tr>
+            <td class="summary__discount-title">Скидка постоянного покупателя:</td>
+            <td class="summary__discount-value">1 006 руб.</td>
+          </tr>
+          <tr>
+            <td>Сумма заказа: <span class="summary__real-price">6 971 руб.</span></td>
+            <td class="summary__order-sum">4 217 руб.</td>
+          </tr>
+          <tr>
+            <td class="summary__delivery-title">Доставка:</td>
+            <td class="summary__delivery-value">бесплатная</td>
+          </tr>
+          <tr>
+            <td class="summary__result-title">ИТОГО:</td>
+            <td class="summary__result-value">4 217 руб.</td>
+          </tr>
+          <tr>
+            <td class="summary__saving-title">Вы экономите:</td>
+            <td class="summary__saving-value">2 754 руб.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="button-steps">
+      <div class="container">
+        <button class="button-step button-step--back" type="button">Назад</button>
+        <button class="button-step button-step--forward" type="button">Продолжить</button>
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="container">
+      <section class="service">
+        <h2>Сервис и поддержка</h2>
+        <ul class="service__links">
+          <li>
+            <a href="#">Как сделать заказ</a>
+          </li>
+          <li>
+            <a href="#">Способы оплаты</a>
+          </li>
+          <li>
+            <a href="#">Возврат товара</a>
+          </li>
+          <li>
+            <a href="#">Правила продажи</a>
+          </li>
+        </ul>
+      </section>
+      <section class="about">
+        <h2>О компании</h2>
+        <ul class="about__links">
+          <li>
+            <a href="#">О нас</a>
+          </li>
+          <li>
+            <a href="#">Сертификаты</a>
+          </li>
+          <li>
+            <a href="#">Контакты</a>
+          </li>
+          <li>
+            <a href="#">Преимущества</a>
+          </li>
+          <li href="#">
+            <a>Вакансии</a>
+          </li>
+          <li href="#">
+            <a>Наши скидки</a>
+          </li>
+        </ul>
+      </section>
+      <section class="social">
+        <h2>Следуйте за нами</h2>
+        <ul class="social__links">
+          <li class="social__link social__link--facebook">
+            <a href="#"><span class="visually-hidden">Мы в Facebook</span></a>
+          </li>
+          <li class="social__link social__link--twitter">
+            <a href="#"><span class="visually-hidden">Мы в Twitter</span></a>
+          </li>
+          <li class="social__link social__link--vk">
+            <a href="#"><span class="visually-hidden">Мы в ВКонтакте</span></a>
+          </li>
+          <li class="social__link social__link--instagram">
+            <a href="#"><span class="visually-hidden">Мы в Instagram</span></a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+</body>
+</html>
