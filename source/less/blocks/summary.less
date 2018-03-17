@@ -8,6 +8,10 @@
   font-size: 13px;
   line-height: normal;
   color: @article-text-color;
+
+  td {
+    padding: 5px 25px;
+  }
 }
 
 .summary__discount-title,
@@ -44,4 +48,11 @@
 .summary__saving-value,
 .summary__order-sum {
   font-weight: 700;
+}
+
+@media (min-width: @desktop-width) {
+  .summary {
+    margin-left: auto;
+    margin-right: 20px;
+  }
 }

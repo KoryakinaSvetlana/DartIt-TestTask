@@ -133,8 +133,10 @@
             <use xlink:href="#icon-menu-burger"></use>
           </svg>
         </button>
-        <ul class="main-navigation__user-menu">
-          <li><a>Личный кабинет</a></li>
+        <ul class="main-navigation__user-menu user-menu">
+          <li class="user-menu__item">
+            <a>Личный кабинет</a>
+          </li>
         </ul>
         <ul class="main-navigation__user-popup-menu popup-menu">
           <li><a href="#">Товары</a></li>
@@ -182,7 +184,10 @@
           <li class="goods-item">
             <div class="goods-item__wrapper">
               <a href="#">
-                <img src="img/2866169-1.jpg" width="80" height="100" alt="Товар">
+                <picture>
+                  <source media="(min-width: 720px)" srcset="img/2866169.jpg">
+                  <img src="img/2866169-1.jpg" width="80" height="100" alt="Товар">
+                </picture>
               </a>
               <div class="goods-item__description description">
                 <p class="description__title">
@@ -243,7 +248,10 @@
           <li class="goods-item">
             <div class="goods-item__wrapper">
               <a href="#">
-                <img src="img/3706400-1.jpg" width="80" height="100" alt="Товар">
+                <picture>
+                  <source media="(min-width: 720px)" srcset="img/3706400.jpg">
+                  <img src="img/3706400-1.jpg" width="80" height="100" alt="Товар">
+                </picture>
               </a>
               <div class="goods-item__description description">
                 <p class="description__title description__title--sale">
@@ -300,7 +308,10 @@
           <li class="goods-item">
             <div class="goods-item__wrapper">
               <a href="#">
-                <img src="img/3885915-1.jpg" width="80" height="100" alt="Товар">
+                <picture>
+                  <source media="(min-width: 720px)" srcset="img/3885915.jpg">
+                  <img src="img/3885915-1.jpg" width="80" height="100" alt="Товар">
+                </picture>
               </a>
               <div class="goods-item__description description">
                 <p class="description__title description__title--new-collection">
@@ -367,134 +378,133 @@
       <div class="container">
         <h2>Выберите способ доставки</h2>
         <p class="delivery__caution">После оформления заказа смена способа доставки невозможна</p>
-        <ul class="delivery__type-items">
-          <li class="delivery__type-item delivery__type-item--active">
-            <a href="#">
-              <svg class="delivery__type-item-icon delivery__type-item-icon--items" width="50px" height="50px">
-                <use xlink:href="#delivery-items"></use>
-              </svg>
-              <span>Самовывоз</span>
-            </a>
-          </li>
-          <li class="delivery__type-item">
-            <a href="#">
-              <svg class="delivery__type-item-icon delivery__type-item-icon--courier" width="50px" height="50px">
-                <use xlink:href="#delivery-boy"></use>
-              </svg>
-              <span>Доставка курьером</span>
-            </a>
-          </li>
-          <li class="delivery__type-item">
-            <a href="#">
-              <svg class="delivery__type-item-icon delivery__type-item-icon--postamat" width="50px" height="50px">
-                <use xlink:href="#delivery-postamat"></use>
-              </svg>
-              <span>Постамат</span>
-            </a>
-          </li>
-        </ul>
-        <div class="delivery__type-description">
-          <h3>Забрать заказ самостоятельно</h3>
-          <div class="delivery__points">
-            <div class="delivery__point">
-              <input id="dp1" name="delivery-point" type="radio" checked>
-              <label for="dp1">г. Пермь (Пермский край), ул. 25 Октября, 29</label>
-              <span class="workload-chart">
-                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-              </span>
-              <div class="delivery__buttons-wrapper">
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Показать на карте</span>
-                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
-                    <use xlink:href="#delivery-items"></use>
-                  </svg>
-                </button>
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Удалить</span>
-                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
-                    <use xlink:href="#cross"></use>
-                  </svg>
-                </button>
+        <div class="delivery__content-wrapper">
+          <ul class="delivery__type-items">
+            <li class="delivery__type-item delivery__type-item--active">
+              <a href="#">
+                <svg class="delivery__type-item-icon delivery__type-item-icon--items" width="50px" height="50px">
+                  <use xlink:href="#delivery-items"></use>
+                </svg>
+                <span>Самовывоз</span>
+              </a>
+            </li>
+            <li class="delivery__type-item">
+              <a href="#">
+                <svg class="delivery__type-item-icon delivery__type-item-icon--courier" width="50px" height="50px">
+                  <use xlink:href="#delivery-boy"></use>
+                </svg>
+                <span>Доставка курьером</span>
+              </a>
+            </li>
+            <li class="delivery__type-item">
+              <a href="#">
+                <svg class="delivery__type-item-icon delivery__type-item-icon--postamat" width="50px" height="50px">
+                  <use xlink:href="#delivery-postamat"></use>
+                </svg>
+                <span>Постамат</span>
+              </a>
+            </li>
+          </ul>
+          <div class="delivery__type-description delivery__type-description--active">
+            <h3>Забрать заказ самостоятельно</h3>
+            <div class="delivery__points">
+              <div class="delivery__point">
+                <input id="dp1" name="delivery-point" type="radio" checked>
+                <label for="dp1">г. Пермь (Пермский край), ул. 25 Октября, 29</label>
+                <span class="workload-chart">
+                  <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                </span>
+                <div class="delivery__buttons-wrapper">
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Показать на карте</span>
+                    <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                      <use xlink:href="#delivery-items"></use>
+                    </svg>
+                  </button>
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Удалить</span>
+                    <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                      <use xlink:href="#cross"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="delivery__point">
+                <input id="dp2" name="delivery-point" type="radio">
+                <label for="dp2">г. Пермь (Пермский край), ул. Маршала Рыбалко, 30</label>
+                <span class="workload-chart">
+                  <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                </span>
+                <div class="delivery__buttons-wrapper">
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Показать на карте</span>
+                    <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                      <use xlink:href="#delivery-items"></use>
+                    </svg>
+                  </button>
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Удалить</span>
+                    <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                      <use xlink:href="#cross"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="delivery__point">
+                <input id="dp3" name="delivery-point" type="radio">
+                <label for="dp3">г. Пермь (Пермский край), ул. Мира, 59</label>
+                <span class="workload-chart">
+                  <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                  <div class="workload-chart__item workload-chart__item--middle"></div>
+                </span>
+                <div class="delivery__buttons-wrapper">
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Показать на карте</span>
+                    <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                      <use xlink:href="#delivery-items"></use>
+                    </svg>
+                  </button>
+                  <button class="delivery__button" type="button">
+                    <span class="visually-hidden">Удалить</span>
+                    <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                      <use xlink:href="#cross"></use>
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-
-            <div class="delivery__point">
-              <input id="dp2" name="delivery-point" type="radio">
-              <label for="dp2">г. Пермь (Пермский край), ул. Маршала Рыбалко, 30</label>
-              <span class="workload-chart">
-                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-              </span>
-              <div class="delivery__buttons-wrapper">
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Показать на карте</span>
-                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
-                    <use xlink:href="#delivery-items"></use>
-                  </svg>
-                </button>
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Удалить</span>
-                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
-                    <use xlink:href="#cross"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            <div class="delivery__point">
-              <input id="dp3" name="delivery-point" type="radio">
-              <label for="dp3">г. Пермь (Пермский край), ул. Мира, 59</label>
-              <span class="workload-chart">
-                <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-                <div class="workload-chart__item workload-chart__item--middle"></div>
-              </span>
-              <div class="delivery__buttons-wrapper">
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Показать на карте</span>
-                  <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
-                    <use xlink:href="#delivery-items"></use>
-                  </svg>
-                </button>
-                <button class="delivery__button" type="button">
-                  <span class="visually-hidden">Удалить</span>
-                  <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
-                    <use xlink:href="#cross"></use>
-                  </svg>
-                </button>
-              </div>
-            </div>
-
+            <button class="delivery__add-point-button" type="button">Добавить пункт самовывоза</button>
+            <p class="delivery__additional-info">В пунктах самовывоза возможна наличная и безналичная оплата.
+    Во всех пунктах Вы можете воспользоваться удобными примерочными.
+    Если товар не подошёл, Вы можете сразу вернуть его менеджеру пункта самовывоза.</p>
           </div>
-          <button class="delivery__add-point-button" type="button">Добавить пункт самовывоза</button>
-          <p class="delivery__additional-info">В пунктах самовывоза возможна наличная и безналичная оплата.
-  Во всех пунктах Вы можете воспользоваться удобными примерочными.
-  Если товар не подошёл, Вы можете сразу вернуть его менеджеру пункта самовывоза.</p>
-        </div>
-        <div class="delivery__type-description">
-          <h3>Заказать доставку курьером по адресу</h3>
-          <p class="delivery__additional-info">В случае указания полного адреса (этаж, подъезд, домофон или код), курьеру не нужно будет уточнять его дополнительно.</p>
-          <button class="delivery__add-address-button" type="button">Добавить адрес</button>
-        </div>
-        <div class="delivery__type-description">
-          <h3>Забрать заказ в постамате</h3>
-          <button class="delivery__add-postamat-button" type="button">Добавить постамат</button>
-          <p class="delivery__additional-info">Примерка отсутствует.</p>
+          <div class="delivery__type-description">
+            <h3>Заказать доставку курьером по адресу</h3>
+            <p class="delivery__additional-info">В случае указания полного адреса (этаж, подъезд, домофон или код), курьеру не нужно будет уточнять его дополнительно.</p>
+            <button class="delivery__add-address-button" type="button">Добавить адрес</button>
+          </div>
+          <div class="delivery__type-description">
+            <h3>Забрать заказ в постамате</h3>
+            <button class="delivery__add-postamat-button" type="button">Добавить постамат</button>
+            <p class="delivery__additional-info">Примерка отсутствует.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -503,106 +513,108 @@
     <section class="payment">
       <div class="container">
         <h2>Выберите способ оплаты</h2>
-        <ul class="payment__type-items">
-          <li class="payment__type-item payment__type-item--active payment__type-item--cash">
-            <a href="#">
-              <span>Оплата при получении</span>
-            </a>
-          </li>
-          <li class="payment__type-item payment__type-item--balance">
-            <a href="#">
-              <span>Мой баланс</span>
-            </a>
-          </li>
-          <li class="payment__type-item payment__type-item--card">
-            <a href="#">
-              <span>Онлайн оплата картой</span>
-            </a>
-          </li>
-          <li class="payment__type-item payment__type-item--yamoney">
-            <a href="#">
-              <span>Яндекс Деньги</span>
-            </a>
-          </li>
-          <li class="payment__type-item payment__type-item--webmoney">
-            <a href="#">
-              <span>WebMoney</span>
-            </a>
-          </li>
-          <li class="payment__type-item payment__type-item--paypal">
-            <a href="#">
-              <span>Paypal</span>
-            </a>
-          </li>
-        </ul>
-        <div class="payment__description">
-          <p>
-            Вы можете оплатить свой заказ наличными при доставке курьером и в пунктах самовывоза.
-          </p>
-          <p>
-            Также Вы можете произвести оплату банковской картой курьеру с помощью специальных переносных мобильных терминалов.
-          </p>
-          <p>
-            Мы принимаем платежи по следующим банковским картам: Visa, Visa Electron, MasterCard, Maestro.
-          </p>
-          <p>
-            Мы не принимаем к оплате банковские карты: American Express, STB, Cirrus, Diners Club International.
-          </p>
-        </div>
-        <div class="payment__description">
-          <p>Вам доступно 0 руб.</p>
-        </div>
-        <div class="payment__description">
-          <p class="caution">Заказ будет оформлен на доставку после поступления оплаты</p>
-          <p>
-            Уважаемые Клиенты! Обращаем Ваше внимание на то, что в связи с ограничениями стандартов безопасности платежных шлюзов PCI DSS, возникают трудности с возвратами денежных средств на банковские счета, начинающиеся на 302*******. Ограничения связаны с передачей номера карты для совершения транзакции.
-          </p>
-          <p>
-            Онлайн оплата банковской картой возможна через системы электронных платежей.
-            Минимальная сумма платежа — 1 руб.
-            Максимальная сумма платежа отсутствует.
-          </p>
-          <p>
-            Мы принимаем платежи с сайта по следующим банковским картам: VISA, MasterCard, Maestro, American Express, JCB, МИР.
-            Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.
-          </p>
-          <p class="caution">Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).</p>
-        </div>
-        <div class="payment__description">
-          <p class="caution">
-            Заказ будет оформлен на доставку после поступления оплаты
-          </p>
-          <p>
-            Оплата по электронным кошелькам возможна через системы электронных платежей.
-          </p>
-          <p class="caution">
-            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
-          </p>
-        </div>
-        <div class="payment__description">
-          <p class="caution">
-            Заказ будет оформлен на доставку после поступления оплаты
-          </p>
-          <p>
-            Оплата по электронным кошелькам возможна через системы электронных платежей.
-          </p>
-          <p class="caution">
-            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
-          </p>
-        </div>
-        <div class="payment__description">
-          <p>
-            PayPal — быстрый и безопасный способ оплаты покупок в Интернете.
-          </p>
-          <p>
-            Сведения о вашей банковской карте или счете всегда в безопасности благодаря самым совершенным системам автоматического шифрования и защиты от мошенничества.
-          </p>
-          <p>
-            Привяжите свою банковскую карту или банковский счет к учетной записи PayPal, и Вам больше никогда не придется вводить номер банковской карты для оплаты.
-          </p>
-          <p class="caution">
-            Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
-          </p>
+        <div class="payment__content-wrapper">
+          <ul class="payment__type-items">
+            <li class="payment__type-item payment__type-item--active payment__type-item--cash">
+              <a href="#">
+                <span>Оплата при получении</span>
+              </a>
+            </li>
+            <li class="payment__type-item payment__type-item--balance">
+              <a href="#">
+                <span>Мой баланс</span>
+              </a>
+            </li>
+            <li class="payment__type-item payment__type-item--card">
+              <a href="#">
+                <span>Онлайн оплата картой</span>
+              </a>
+            </li>
+            <li class="payment__type-item payment__type-item--yamoney">
+              <a href="#">
+                <span>Яндекс Деньги</span>
+              </a>
+            </li>
+            <li class="payment__type-item payment__type-item--webmoney">
+              <a href="#">
+                <span>WebMoney</span>
+              </a>
+            </li>
+            <li class="payment__type-item payment__type-item--paypal">
+              <a href="#">
+                <span>Paypal</span>
+              </a>
+            </li>
+          </ul>
+          <div class="payment__description payment__description--active">
+            <p>
+              Вы можете оплатить свой заказ наличными при доставке курьером и в пунктах самовывоза.
+            </p>
+            <p>
+              Также Вы можете произвести оплату банковской картой курьеру с помощью специальных переносных мобильных терминалов.
+            </p>
+            <p>
+              Мы принимаем платежи по следующим банковским картам: Visa, Visa Electron, MasterCard, Maestro.
+            </p>
+            <p>
+              Мы не принимаем к оплате банковские карты: American Express, STB, Cirrus, Diners Club International.
+            </p>
+          </div>
+          <div class="payment__description">
+            <p>Вам доступно 0 руб.</p>
+          </div>
+          <div class="payment__description">
+            <p class="caution">Заказ будет оформлен на доставку после поступления оплаты</p>
+            <p>
+              Уважаемые Клиенты! Обращаем Ваше внимание на то, что в связи с ограничениями стандартов безопасности платежных шлюзов PCI DSS, возникают трудности с возвратами денежных средств на банковские счета, начинающиеся на 302*******. Ограничения связаны с передачей номера карты для совершения транзакции.
+            </p>
+            <p>
+              Онлайн оплата банковской картой возможна через системы электронных платежей.
+              Минимальная сумма платежа — 1 руб.
+              Максимальная сумма платежа отсутствует.
+            </p>
+            <p>
+              Мы принимаем платежи с сайта по следующим банковским картам: VISA, MasterCard, Maestro, American Express, JCB, МИР.
+              Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.
+            </p>
+            <p class="caution">Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).</p>
+          </div>
+          <div class="payment__description">
+            <p class="caution">
+              Заказ будет оформлен на доставку после поступления оплаты
+            </p>
+            <p>
+              Оплата по электронным кошелькам возможна через системы электронных платежей.
+            </p>
+            <p class="caution">
+              Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+            </p>
+          </div>
+          <div class="payment__description">
+            <p class="caution">
+              Заказ будет оформлен на доставку после поступления оплаты
+            </p>
+            <p>
+              Оплата по электронным кошелькам возможна через системы электронных платежей.
+            </p>
+            <p class="caution">
+              Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+            </p>
+          </div>
+          <div class="payment__description">
+            <p>
+              PayPal — быстрый и безопасный способ оплаты покупок в Интернете.
+            </p>
+            <p>
+              Сведения о вашей банковской карте или счете всегда в безопасности благодаря самым совершенным системам автоматического шифрования и защиты от мошенничества.
+            </p>
+            <p>
+              Привяжите свою банковскую карту или банковский счет к учетной записи PayPal, и Вам больше никогда не придется вводить номер банковской карты для оплаты.
+            </p>
+            <p class="caution">
+              Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -643,64 +655,71 @@
   </main>
   <footer class="page-footer">
     <div class="container">
-      <section class="service">
-        <h2>Сервис и поддержка</h2>
-        <ul class="service__links">
-          <li>
-            <a href="#">Как сделать заказ</a>
-          </li>
-          <li>
-            <a href="#">Способы оплаты</a>
-          </li>
-          <li>
-            <a href="#">Возврат товара</a>
-          </li>
-          <li>
-            <a href="#">Правила продажи</a>
-          </li>
-        </ul>
-      </section>
-      <section class="about">
-        <h2>О компании</h2>
-        <ul class="about__links">
-          <li>
-            <a href="#">О нас</a>
-          </li>
-          <li>
-            <a href="#">Сертификаты</a>
-          </li>
-          <li>
-            <a href="#">Контакты</a>
-          </li>
-          <li>
-            <a href="#">Преимущества</a>
-          </li>
-          <li href="#">
-            <a>Вакансии</a>
-          </li>
-          <li href="#">
-            <a>Наши скидки</a>
-          </li>
-        </ul>
-      </section>
-      <section class="social">
-        <h2>Следуйте за нами</h2>
-        <ul class="social__links">
-          <li class="social__link social__link--facebook">
-            <a href="#"><span class="visually-hidden">Мы в Facebook</span></a>
-          </li>
-          <li class="social__link social__link--twitter">
-            <a href="#"><span class="visually-hidden">Мы в Twitter</span></a>
-          </li>
-          <li class="social__link social__link--vk">
-            <a href="#"><span class="visually-hidden">Мы в ВКонтакте</span></a>
-          </li>
-          <li class="social__link social__link--instagram">
-            <a href="#"><span class="visually-hidden">Мы в Instagram</span></a>
-          </li>
-        </ul>
-      </section>
+      <div class="page-footer__wrapper">
+        <section class="service">
+          <h2>Сервис и поддержка</h2>
+          <ul class="service__links">
+            <li>
+              <a href="#">Как сделать заказ</a>
+            </li>
+            <li>
+              <a href="#">Способы оплаты</a>
+            </li>
+            <li>
+              <a href="#">Возврат товара</a>
+            </li>
+            <li>
+              <a href="#">Правила продажи</a>
+            </li>
+          </ul>
+        </section>
+        <section class="about">
+          <h2>О компании</h2>
+          <ul class="about__links">
+            <li>
+              <a href="#">О нас</a>
+            </li>
+            <li>
+              <a href="#">Сертификаты</a>
+            </li>
+            <li>
+              <a href="#">Контакты</a>
+            </li>
+            <li>
+              <a href="#">Преимущества</a>
+            </li>
+            <li href="#">
+              <a>Вакансии</a>
+            </li>
+            <li href="#">
+              <a>Наши скидки</a>
+            </li>
+          </ul>
+        </section>
+        <section class="social">
+          <h2>Следуйте за нами</h2>
+          <ul class="social__links">
+            <li class="social__link social__link--facebook">
+              <a href="#"><span class="visually-hidden">Мы в Facebook</span></a>
+            </li>
+            <li class="social__link social__link--twitter">
+              <a href="#"><span class="visually-hidden">Мы в Twitter</span></a>
+            </li>
+            <li class="social__link social__link--vk">
+              <a href="#"><span class="visually-hidden">Мы в ВКонтакте</span></a>
+            </li>
+            <li class="social__link social__link--instagram">
+              <a href="#"><span class="visually-hidden">Мы в Instagram</span></a>
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
   </footer>
+  <script>
+    // Picture element HTML5 shiv
+    document.createElement( "picture" );
+  </script>
+  <script src="scripts/picturefill.min.js" async></script>
 </body>
 </html>

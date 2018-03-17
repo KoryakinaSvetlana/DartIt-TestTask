@@ -58,3 +58,20 @@
     }
   }
 }
+
+@media (min-width: @desktop-width) {
+  .description {
+    .description__title {
+      margin-top: 0;
+
+      &--sale,
+      &--new-collection {
+        margin-top: 50px;
+
+        &::before {
+          top: 5px;
+        }
+      }
+    }
+  }
+}

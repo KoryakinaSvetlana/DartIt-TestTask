@@ -39,3 +39,50 @@
   display: flex;
   flex-direction: column;
 }
+
+@media (min-width: @desktop-width) {
+  .goods-item {
+    img {
+      width: 120px;
+      height: 160px;
+    }
+  }
+
+  .goods-item__wrapper {
+    flex-wrap: nowrap;
+
+    a {
+      flex-shrink: 0;
+    }
+  }
+
+  .goods-item__description {
+    width: auto;
+    margin-left: 20px;
+    order: 2;
+  }
+
+  .goods-item__counter-and-price-wrapper {
+    flex-direction: row;
+    flex-grow: 1;
+    margin-left: auto;
+    justify-content: flex-end;
+    order: 3;
+  }
+
+  .goods-item__counter {
+    order: 1;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+
+  .goods-item__price {
+    order: 2;
+    width: 200px;
+  }
+
+  .goods-item__toolbar {
+    margin-top: 5px;
+    width: 25px;
+  }
+}

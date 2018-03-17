@@ -36,3 +36,18 @@
     }
   }
 }
+
+@media (min-width: @desktop-width) {
+  .about {
+    padding-right: 10px;
+    margin-right: 10px;
+    flex-grow: 1;
+
+    &::after {
+      width: 1px;
+      height: 80%;
+      top: 25px;
+      right: 0;
+    }
+  }
+}
