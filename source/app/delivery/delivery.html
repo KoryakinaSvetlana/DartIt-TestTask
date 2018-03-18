@@ -1,0 +1,170 @@
+<!--Выбор способа доставки-->
+<section class="delivery">
+  <div class="container">
+    <h2>Выберите способ доставки</h2>
+    <p class="delivery__caution">После оформления заказа смена способа доставки невозможна</p>
+    <div class="delivery__content-wrapper">
+      <ul class="delivery__type-items">
+        <li class="delivery__type-item delivery__type-item--active">
+          <a href="#">
+            <svg class="delivery__type-item-icon delivery__type-item-icon--items" width="50px" height="50px">
+              <use xlink:href="#delivery-items"></use>
+            </svg>
+            <span>Самовывоз</span>
+          </a>
+        </li>
+        <li class="delivery__type-item">
+          <a href="#">
+            <svg class="delivery__type-item-icon delivery__type-item-icon--courier" width="50px" height="50px">
+              <use xlink:href="#delivery-boy"></use>
+            </svg>
+            <span>Доставка курьером</span>
+          </a>
+        </li>
+        <li class="delivery__type-item">
+          <a href="#">
+            <svg class="delivery__type-item-icon delivery__type-item-icon--postamat" width="50px" height="50px">
+              <use xlink:href="#delivery-postamat"></use>
+            </svg>
+            <span>Постамат</span>
+          </a>
+        </li>
+      </ul>
+      <div class="delivery__type-description delivery__type-description--active">
+        <h3>Забрать заказ самостоятельно</h3>
+        <div class="delivery__points">
+          <div class="delivery__point">
+            <input id="dp1" name="delivery-point" type="radio" checked>
+            <label for="dp1">г. Пермь (Пермский край), ул. 25 Октября, 29</label>
+            <span class="workload-chart">
+              <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+            </span>
+            <div class="delivery__buttons-wrapper">
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Показать на карте</span>
+                <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                  <use xlink:href="#delivery-items"></use>
+                </svg>
+              </button>
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Удалить</span>
+                <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                  <use xlink:href="#cross"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="delivery__point">
+            <input id="dp2" name="delivery-point" type="radio">
+            <label for="dp2">г. Пермь (Пермский край), ул. Маршала Рыбалко, 30</label>
+            <span class="workload-chart">
+              <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+            </span>
+            <div class="delivery__buttons-wrapper">
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Показать на карте</span>
+                <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                  <use xlink:href="#delivery-items"></use>
+                </svg>
+              </button>
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Удалить</span>
+                <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                  <use xlink:href="#cross"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="delivery__point">
+            <input id="dp3" name="delivery-point" type="radio">
+            <label for="dp3">г. Пермь (Пермский край), ул. Мира, 59</label>
+            <span class="workload-chart">
+              <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+              <div class="workload-chart__item workload-chart__item--middle"></div>
+            </span>
+            <div class="delivery__buttons-wrapper">
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Показать на карте</span>
+                <svg class="delivery__button-icon delivery__button-icon--location" width="20px" height="20px">
+                  <use xlink:href="#delivery-items"></use>
+                </svg>
+              </button>
+              <button class="delivery__button" type="button">
+                <span class="visually-hidden">Удалить</span>
+                <svg class="delivery__button-icon delivery__button-icon--cross" width="14px" height="14px">
+                  <use xlink:href="#cross"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button class="delivery__add-point-button" type="button">Добавить пункт самовывоза</button>
+        <p class="delivery__additional-info">В пунктах самовывоза возможна наличная и безналичная оплата.
+Во всех пунктах Вы можете воспользоваться удобными примерочными.
+Если товар не подошёл, Вы можете сразу вернуть его менеджеру пункта самовывоза.</p>
+      </div>
+      <div class="delivery__type-description">
+        <h3>Заказать доставку курьером по адресу</h3>
+        <p class="delivery__additional-info">В случае указания полного адреса (этаж, подъезд, домофон или код), курьеру не нужно будет уточнять его дополнительно.</p>
+        <button class="delivery__add-address-button" type="button">Добавить адрес</button>
+      </div>
+      <div class="delivery__type-description">
+        <h3>Забрать заказ в постамате</h3>
+        <button class="delivery__add-postamat-button" type="button">Добавить постамат</button>
+        <p class="delivery__additional-info">Примерка отсутствует.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Итоговая сумма покупки-->
+<div class="summary__wrapper">
+  <div class="container">
+    <table class="summary">
+      <tr>
+        <td class="summary__discount-title">Скидка постоянного покупателя:</td>
+        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__delivery-title">Доставка:</td>
+        <td class="summary__delivery-value">бесплатная</td>
+      </tr>
+      <tr>
+        <td class="summary__result-title">ИТОГО:</td>
+        <td class="summary__result-value">{{vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__saving-title">Вы экономите:</td>
+        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="button-steps">
+  <div class="container">
+    <a ui-sref="form.goods" class="button-step button-step--back">Назад</a>
+    <a ui-sref="form.payment" class="button-step button-step--forward">Продолжить</a>
+  </div>
+</div>

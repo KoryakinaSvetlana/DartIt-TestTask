@@ -1,0 +1,144 @@
+<!--Выбор способа оплаты-->
+<section class="payment">
+  <div class="container">
+    <h2>Выберите способ оплаты</h2>
+    <div class="payment__content-wrapper">
+      <ul class="payment__type-items">
+        <li class="payment__type-item payment__type-item--active payment__type-item--cash">
+          <a href="#">
+            <span>Оплата при получении</span>
+          </a>
+        </li>
+        <li class="payment__type-item payment__type-item--balance">
+          <a href="#">
+            <span>Мой баланс</span>
+          </a>
+        </li>
+        <li class="payment__type-item payment__type-item--card">
+          <a href="#">
+            <span>Онлайн оплата картой</span>
+          </a>
+        </li>
+        <li class="payment__type-item payment__type-item--yamoney">
+          <a href="#">
+            <span>Яндекс Деньги</span>
+          </a>
+        </li>
+        <li class="payment__type-item payment__type-item--webmoney">
+          <a href="#">
+            <span>WebMoney</span>
+          </a>
+        </li>
+        <li class="payment__type-item payment__type-item--paypal">
+          <a href="#">
+            <span>Paypal</span>
+          </a>
+        </li>
+      </ul>
+      <div class="payment__description payment__description--active">
+        <p>
+          Вы можете оплатить свой заказ наличными при доставке курьером и в пунктах самовывоза.
+        </p>
+        <p>
+          Также Вы можете произвести оплату банковской картой курьеру с помощью специальных переносных мобильных терминалов.
+        </p>
+        <p>
+          Мы принимаем платежи по следующим банковским картам: Visa, Visa Electron, MasterCard, Maestro.
+        </p>
+        <p>
+          Мы не принимаем к оплате банковские карты: American Express, STB, Cirrus, Diners Club International.
+        </p>
+      </div>
+      <div class="payment__description">
+        <p>Вам доступно 0 руб.</p>
+      </div>
+      <div class="payment__description">
+        <p class="caution">Заказ будет оформлен на доставку после поступления оплаты</p>
+        <p>
+          Уважаемые Клиенты! Обращаем Ваше внимание на то, что в связи с ограничениями стандартов безопасности платежных шлюзов PCI DSS, возникают трудности с возвратами денежных средств на банковские счета, начинающиеся на 302*******. Ограничения связаны с передачей номера карты для совершения транзакции.
+        </p>
+        <p>
+          Онлайн оплата банковской картой возможна через системы электронных платежей.
+          Минимальная сумма платежа — 1 руб.
+          Максимальная сумма платежа отсутствует.
+        </p>
+        <p>
+          Мы принимаем платежи с сайта по следующим банковским картам: VISA, MasterCard, Maestro, American Express, JCB, МИР.
+          Номер карты (PAN) должен иметь не менее 15 и не более 19 символов.
+        </p>
+        <p class="caution">Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).</p>
+      </div>
+      <div class="payment__description">
+        <p class="caution">
+          Заказ будет оформлен на доставку после поступления оплаты
+        </p>
+        <p>
+          Оплата по электронным кошелькам возможна через системы электронных платежей.
+        </p>
+        <p class="caution">
+          Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+        </p>
+      </div>
+      <div class="payment__description">
+        <p class="caution">
+          Заказ будет оформлен на доставку после поступления оплаты
+        </p>
+        <p>
+          Оплата по электронным кошелькам возможна через системы электронных платежей.
+        </p>
+        <p class="caution">
+          Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+        </p>
+      </div>
+      <div class="payment__description">
+        <p>
+          PayPal — быстрый и безопасный способ оплаты покупок в Интернете.
+        </p>
+        <p>
+          Сведения о вашей банковской карте или счете всегда в безопасности благодаря самым совершенным системам автоматического шифрования и защиты от мошенничества.
+        </p>
+        <p>
+          Привяжите свою банковскую карту или банковский счет к учетной записи PayPal, и Вам больше никогда не придется вводить номер банковской карты для оплаты.
+        </p>
+        <p class="caution">
+          Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Итоговая сумма покупки-->
+<div class="summary__wrapper">
+  <div class="container">
+    <table class="summary">
+      <tr>
+        <td class="summary__discount-title">Скидка постоянного покупателя:</td>
+        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__delivery-title">Доставка:</td>
+        <td class="summary__delivery-value">бесплатная</td>
+      </tr>
+      <tr>
+        <td class="summary__result-title">ИТОГО:</td>
+        <td class="summary__result-value">{{vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__saving-title">Вы экономите:</td>
+        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="button-steps">
+  <div class="container">
+    <a ui-sref="form.delivery" class="button-step button-step--back">Назад</a>
+    <a class="button-step button-step--forward">Оформить заказ</a>
+  </div>
+</div>

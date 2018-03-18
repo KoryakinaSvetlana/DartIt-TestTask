@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Оформление заказа</h1>
+  <!-- steps -->
+  <ul class="order-steps">
+    <li class="order-steps__item">
+      <a class="order-steps__link order-steps__link--active" ui-sref-active="order-steps__link--active" ui-sref=".goods" data-toggle="tab" title="Список товаров">
+        <svg class="order-steps__item-icon order-steps__item-icon--basket" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+          <use xlink:href="#basket"></use>
+        </svg>
+        <span>Корзина</span>
+      </a>
+    </li>
+    <li class="order-steps__item">
+      <a class="order-steps__link" ui-sref-active="order-steps__link--active" ui-sref=".delivery" data-toggle="tab" title="Доставка">
+        <svg class="order-steps__item-icon order-steps__item-icon--delivery" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+          <use xlink:href="#delivery-box"></use>
+        </svg>
+        <span>Доставка</span>
+      </a>
+    </li>
+    <li class="order-steps__item">
+      <a class="order-steps__link" ui-sref-active="order-steps__link--active" ui-sref=".payment" data-toggle="tab" title="Выбор способа оплаты">
+        <svg class="order-steps__item-icon order-steps__item-icon--payment" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 50 50">
+          <use xlink:href="#wallet"></use>
+        </svg>
+        <span>Оплата</span>
+      </a>
+    </li>
+  </ul>
+  <!-- steps -->
+</div>
+
+<!-- Content Area -->
+<div class="tab-content">
+  <!-- Nested view  -->
+  <div ui-view></div>
+</div>
+<!-- End Content Area -->
+
+<!--<pre>{{ vm.formData | json }}</pre>-->

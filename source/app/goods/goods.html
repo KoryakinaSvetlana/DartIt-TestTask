@@ -1,0 +1,128 @@
+<!--Список выбранных товаров-->
+<section>
+  <h2 class="visually-hidden">Список выбранных товаров</h2>
+  <div class="container">
+    <ul class="goods-items">
+      <li class="goods-item"  ng-repeat="item in vm.formData.items">
+        <div class="goods-item__wrapper">
+          <a href="#">
+            <picture>
+              <source media="(min-width: 720px)" srcset="{{item.imageDesktop}}">
+              <img src="{{item.imageMobile}}" width="80" height="100" alt="Товар">
+            </picture>
+          </a>
+          <div class="goods-item__description description">
+            <p class="description__title">
+              <a href="#">{{item.description}}</a>
+            </p>
+            <p>Артикул: <span>{{item.article}}</span></p>
+            <p>Цвет: <span>{{item.color}}</span></p>
+            <p>Размер: <span>{{item.size}}</span></p>
+          </div>
+          <div class="goods-item__counter-and-price-wrapper">
+            <div class="goods-item__counter counter">
+              <span class="counter__wrapper">
+                <button class="counter__button" type="button" ng-click="item.decrease(); vm.formData.calcSum()">
+                  <span class="visually-hidden">Уменьшить количество</span>
+                  <svg class="counter__button-icon counter__button-icon--minus" width="10px" height="10px">
+                    <use xlink:href="#minus"></use>
+                  </svg>
+                </button>
+                <input type="text" autocomplete="off" maxlength="2" value="{{item.count}}">
+                <button class="counter__button" type="button" ng-click="item.increase(); vm.formData.calcSum()">
+                  <span class="visually-hidden">Увеличить количество</span>
+                  <svg class="counter__button-icon counter__button-icon--plus" width="10px" height="10px">
+                    <use xlink:href="#plus"></use>
+                  </svg>
+                </button>
+              </span>
+            </div>
+            <div class="goods-item__price price">
+              <p>
+                <span class="price__discount" ng-show="item.discount>0">-{{item.discount}}%</span>
+                <span class="price__start" ng-show="item.discount>0">{{item.price}}</span>
+                <span class="price__result">{{(item.discount>0 ? item.price - item.price*item.discount/100  : item.price) | floor}}</span>
+              </p>
+              <p>
+                <span class="price__promo" ng-show="item.promo>0">-{{item.promo}}%</span>
+                <span class="price__before-promo" ng-show="item.promo>0">{{(item.discount>0 ? (item.price - item.price*item.discount/100) : item.price) | floor}}</span>
+                <span class="price__after-promo">{{(item.promo>0 ?
+                  ((item.discount>0 ? item.price - item.price*item.discount/100  : item.price) - (item.discount>0 ? item.price - item.price*item.discount/100
+                  : item.price)*item.promo/100) : (item.discount>0 ? item.price - item.price*item.discount/100  : item.price)) | floor}}</span>
+              </p>
+              <p>
+                <span class="price__personal-discount" ng-show="item.canApplyPersonalDiscount">-{{vm.formData.personalDiscount}}%</span>
+                <span class="price__before-personal-discount" ng-show="item.canApplyPersonalDiscount">{{(item.promo>0 ?
+                  ((item.discount>0 ? item.price - item.price*item.discount/100  : item.price) - (item.discount>0 ? item.price - item.price*item.discount/100
+                  : item.price)*item.promo/100) : (item.discount>0 ? item.price - item.price*item.discount/100  : item.price)) * item.count | floor}}</span>
+                <span class="price__after-personal-discount">{{(item.canApplyPersonalDiscount ? (
+                  (item.promo>0 ?
+                    ((item.discount>0 ? item.price - item.price*item.discount/100  : item.price) - (item.discount>0 ? item.price - item.price*item.discount/100
+                    : item.price)*item.promo/100) : (item.discount>0 ? item.price - item.price*item.discount/100  : item.price))
+                    - (item.promo>0 ?
+                      ((item.discount>0 ? item.price - item.price*item.discount/100  : item.price) - (item.discount>0 ? item.price - item.price*item.discount/100
+                      : item.price)*item.promo/100) : (item.discount>0 ? item.price - item.price*item.discount/100  : item.price)) * vm.formData.personalDiscount / 100 )
+: (item.promo>0 ?
+  ((item.discount>0 ? item.price - item.price*item.discount/100  : item.price) - (item.discount>0 ? item.price - item.price*item.discount/100
+  : item.price)*item.promo/100) : (item.discount>0 ? item.price - item.price*item.discount/100  : item.price))
+                ) * item.count | floor}}</span>
+              </p>
+            </div>
+          </div>
+          <div class="goods-item__toolbar toolbar">
+            <button class="toolbar__item" type="button" title="Удалить из корзины">
+              <span class="visually-hidden">Удалить из корзины</span>
+              <svg class="toolbar__item-icon toolbar__item-icon--delete" width="14px" height="14px">
+                <use xlink:href="#cross"></use>
+              </svg>
+            </bitton>
+            <button class="toolbar__item" type="button" title="Отложить товар">
+              <span class="visually-hidden">Отложить товар</span>
+              <svg class="toolbar__item-icon toolbar__item-icon--postpone" width="14px" height="14px">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </bitton>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <p class="promo-code">
+      <input type="text">
+      <button class="promo-code__apply-button" type="button">Применить промокод</button>
+    </p>
+  </div>
+</section>
+
+<!--Итоговая сумма покупки-->
+<div class="summary__wrapper">
+  <div class="container">
+    <table class="summary">
+      <tr>
+        <td class="summary__discount-title">Скидка постоянного покупателя:</td>
+        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__delivery-title">Доставка:</td>
+        <td class="summary__delivery-value">бесплатная</td>
+      </tr>
+      <tr>
+        <td class="summary__result-title">ИТОГО:</td>
+        <td class="summary__result-value">{{vm.formData.sum}} руб.</td>
+      </tr>
+      <tr>
+        <td class="summary__saving-title">Вы экономите:</td>
+        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="button-steps">
+  <div class="container">
+    <a ui-sref="form.delivery" class="button-step button-step--forward">Продолжить</a>
+  </div>
+</div>

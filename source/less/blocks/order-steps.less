@@ -10,21 +10,12 @@
   flex-grow: 1;
   text-align: center;
 
-  span {
-    display: none;
-  }
-
-  a {
-    position: relative;
-    display: block;
-  }
-
   &:last-child {
     margin-right: 0;
   }
 
   &:not(:last-child) {
-    a {
+    .order-steps__link {
       &::after {
         content: "";
         position: absolute;
@@ -36,6 +27,15 @@
         vertical-align: middle;
       }
     }
+  }
+}
+
+.order-steps__link {
+  position: relative;
+  display: block;
+
+  span {
+    display: none;
   }
 
   &--active {
@@ -67,26 +67,26 @@
   }
 
   .order-steps__item {
-    a {
-      display: flex;
-      justify-content: center;
-      color: @text-color-gray;
+    &:not(:last-child) {
+      .order-steps__link {
+        &::after {
+          width: calc(~"100% - 150px - 20px");
+          left: calc(~"50% + 75px + 10px");
+        }
+      }
     }
+  }
+
+  .order-steps__link {
+    display: flex;
+    justify-content: center;
+    color: @text-color-gray;
 
     span {
       display: inline-block;
       line-height: 50px;
       vertical-align: middle;
       margin-left: 15px;
-    }
-
-    &:not(:last-child) {
-      a {
-        &::after {
-          width: calc(~"100% - 150px - 20px");
-          left: calc(~"50% + 75px + 10px");
-        }
-      }
     }
   }
 }
