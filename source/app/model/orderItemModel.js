@@ -1,4 +1,4 @@
-function orderItem() {
+function OrderItem() {
   this.id = 0;
   this.article = 0;
   this.description = '';

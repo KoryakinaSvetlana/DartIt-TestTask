@@ -5,13 +5,13 @@
         .module('formApp')
         .controller('FormController', FormController);
 
-    FormController.$inject = ['FormDataModel'];
+    FormController.$inject = [];
 
-    function FormController(FormDataModel) {
+    function FormController() {
         var vm = this;
         vm.title = 'Оформление заказа';
         // we will store all of our form data in this object
-        vm.formData = GetMockFormData(FormDataModel);
+        vm.formData = GetMockFormData();
         vm.formData.calc();
 
         vm.$onInit = activate;
@@ -27,8 +27,8 @@
         }
     }
 
-    function GetMockFormData(FormDataModel) {
-      var data = new FormDataModel();
+    function GetMockFormData() {
+      var data = new Order();
       var item;
       //номер заказа
       data.id = 1;
@@ -46,7 +46,7 @@
       data.sumBeforePersonalDiscount = 0;
 
       //товары в заказе
-      item = new orderItem();
+      item = new OrderItem();
       item.id = 1;
       item.article = 2866169;
       item.description = 'Маленькие куколки. Модели из разных материалов, Хоббитека';
@@ -57,7 +57,7 @@
       item.promo = 10;
       data.addItem(item);
 
-      item = new orderItem();
+      item = new OrderItem();
       item.id = 2;
       item.article = 3706400;
       item.description = 'Брелок-фонарик для ключей LEGO Friends (цвет: лиловый), Lego.';
@@ -70,7 +70,7 @@
       item.sale = true;
       data.addItem(item);
 
-      item = new orderItem();
+      item = new OrderItem();
       item.id = 3;
       item.article = 3885915;
       item.description = 'Сумка, EVITA';
