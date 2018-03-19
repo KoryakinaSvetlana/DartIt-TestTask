@@ -4,38 +4,38 @@
     <h2>Выберите способ оплаты</h2>
     <div class="payment__content-wrapper">
       <ul class="payment__type-items">
-        <li class="payment__type-item payment__type-item--active payment__type-item--cash">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--cash" ng-class="{'payment__type-item--active': vm.formData.paymentType==0}" ng-click="vm.setPaymentType(0)">
+          <a>
             <span>Оплата при получении</span>
           </a>
         </li>
-        <li class="payment__type-item payment__type-item--balance">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--balance" ng-class="{'payment__type-item--active': vm.formData.paymentType==1}" ng-click="vm.setPaymentType(1)">
+          <a>
             <span>Мой баланс</span>
           </a>
         </li>
-        <li class="payment__type-item payment__type-item--card">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--card" ng-class="{'payment__type-item--active': vm.formData.paymentType==2}" ng-click="vm.setPaymentType(2)">
+          <a>
             <span>Онлайн оплата картой</span>
           </a>
         </li>
-        <li class="payment__type-item payment__type-item--yamoney">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--yamoney" ng-class="{'payment__type-item--active': vm.formData.paymentType==3}" ng-click="vm.setPaymentType(3)">
+          <a>
             <span>Яндекс Деньги</span>
           </a>
         </li>
-        <li class="payment__type-item payment__type-item--webmoney">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--webmoney" ng-class="{'payment__type-item--active': vm.formData.paymentType==4}" ng-click="vm.setPaymentType(4)">
+          <a>
             <span>WebMoney</span>
           </a>
         </li>
-        <li class="payment__type-item payment__type-item--paypal">
-          <a href="#">
+        <li class="payment__type-item payment__type-item--paypal" ng-class="{'payment__type-item--active': vm.formData.paymentType==5}" ng-click="vm.setPaymentType(5)">
+          <a>
             <span>Paypal</span>
           </a>
         </li>
       </ul>
-      <div class="payment__description payment__description--active">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==0}">
         <p>
           Вы можете оплатить свой заказ наличными при доставке курьером и в пунктах самовывоза.
         </p>
@@ -49,10 +49,10 @@
           Мы не принимаем к оплате банковские карты: American Express, STB, Cirrus, Diners Club International.
         </p>
       </div>
-      <div class="payment__description">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==1}">
         <p>Вам доступно 0 руб.</p>
       </div>
-      <div class="payment__description">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==2}">
         <p class="caution">Заказ будет оформлен на доставку после поступления оплаты</p>
         <p>
           Уважаемые Клиенты! Обращаем Ваше внимание на то, что в связи с ограничениями стандартов безопасности платежных шлюзов PCI DSS, возникают трудности с возвратами денежных средств на банковские счета, начинающиеся на 302*******. Ограничения связаны с передачей номера карты для совершения транзакции.
@@ -68,7 +68,7 @@
         </p>
         <p class="caution">Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).</p>
       </div>
-      <div class="payment__description">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==3}">
         <p class="caution">
           Заказ будет оформлен на доставку после поступления оплаты
         </p>
@@ -79,7 +79,7 @@
           Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
         </p>
       </div>
-      <div class="payment__description">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==4}">
         <p class="caution">
           Заказ будет оформлен на доставку после поступления оплаты
         </p>
@@ -90,7 +90,7 @@
           Для получения предоплаченного заказа Вам необходимо иметь при себе документ удостоверяющий личность (паспорт или водительские права).
         </p>
       </div>
-      <div class="payment__description">
+      <div class="payment__description" ng-class="{'payment__description--active': vm.formData.paymentType==5}">
         <p>
           PayPal — быстрый и безопасный способ оплаты покупок в Интернете.
         </p>
@@ -114,11 +114,11 @@
     <table class="summary">
       <tr>
         <td class="summary__discount-title">Скидка постоянного покупателя:</td>
-        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+        <td class="summary__discount-value">{{vm.formData.beforePersonalDiscountSum - vm.formData.sum}} руб.</td>
       </tr>
       <tr>
-        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
-        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.beforeDiscountsSum}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.beforePersonalDiscountSum}} руб.</td>
       </tr>
       <tr>
         <td class="summary__delivery-title">Доставка:</td>
@@ -130,7 +130,7 @@
       </tr>
       <tr>
         <td class="summary__saving-title">Вы экономите:</td>
-        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+        <td class="summary__saving-value">{{vm.formData.beforeDiscountsSum - vm.formData.sum}} руб.</td>
       </tr>
     </table>
   </div>

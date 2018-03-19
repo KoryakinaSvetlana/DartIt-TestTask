@@ -13,13 +13,18 @@
         vm.formData = {};
 
         vm.$onInit = activate;
+        vm.calc = calc;
 
         //methods
 
         function activate() {
             // get data from the parent component
             vm.formData = vm.parent.getData();
-            console.log('Personal feature loaded!');
+            console.log('Goods loaded!');
+        }
+
+        function calc() {
+          vm.formData.calc();
         }
 
     }

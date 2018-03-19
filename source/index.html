@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" ng-app="formApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +7,7 @@
   <link href="css/style.css" rel="stylesheet" />
   <title>Оформление заказа</title>
 </head>
-<body ng-app="formApp">
+<body>
   <!--SVG Sprite-->
   <div style="display:none">
     <svg xmlns="http://www.w3.org/2000/svg">
@@ -238,5 +238,9 @@
 
   <script src="app/payment/payment.component.js"></script>
   <script src="app/payment/payment.controller.js"></script>
+
+  <script src="app/model/orderItemModel.js"></script>
+  <script src="app/model/orderModel.js"></script>
+
 </body>
 </html>

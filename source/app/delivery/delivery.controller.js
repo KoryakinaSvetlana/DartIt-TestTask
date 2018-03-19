@@ -13,13 +13,18 @@
         vm.formData = {};
 
         vm.$onInit = activate;
+        vm.setDeliveryType = setDeliveryType;
 
         //methods
 
         function activate() {
             // get data from the parent component
             vm.formData = vm.parent.getData();
-            console.log('Work feature loaded!');
+            console.log('Delivery loaded!');
+        }
+
+        function setDeliveryType(deliveryType) {
+          vm.formData.deliveryType = deliveryType;
         }
     }
 })();

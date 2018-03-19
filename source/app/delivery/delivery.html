@@ -5,24 +5,24 @@
     <p class="delivery__caution">После оформления заказа смена способа доставки невозможна</p>
     <div class="delivery__content-wrapper">
       <ul class="delivery__type-items">
-        <li class="delivery__type-item delivery__type-item--active">
-          <a href="#">
+        <li class="delivery__type-item" ng-class="{'delivery__type-item--active': vm.formData.deliveryType==0}" ng-click="vm.setDeliveryType(0)">
+          <a>
             <svg class="delivery__type-item-icon delivery__type-item-icon--items" width="50px" height="50px">
               <use xlink:href="#delivery-items"></use>
             </svg>
             <span>Самовывоз</span>
           </a>
         </li>
-        <li class="delivery__type-item">
-          <a href="#">
+        <li class="delivery__type-item" ng-class="{'delivery__type-item--active': vm.formData.deliveryType==1}" ng-click="vm.setDeliveryType(1)">
+          <a>
             <svg class="delivery__type-item-icon delivery__type-item-icon--courier" width="50px" height="50px">
               <use xlink:href="#delivery-boy"></use>
             </svg>
             <span>Доставка курьером</span>
           </a>
         </li>
-        <li class="delivery__type-item">
-          <a href="#">
+        <li class="delivery__type-item" ng-class="{'delivery__type-item--active': vm.formData.deliveryType==2}" ng-click="vm.setDeliveryType(2)">
+          <a>
             <svg class="delivery__type-item-icon delivery__type-item-icon--postamat" width="50px" height="50px">
               <use xlink:href="#delivery-postamat"></use>
             </svg>
@@ -30,11 +30,11 @@
           </a>
         </li>
       </ul>
-      <div class="delivery__type-description delivery__type-description--active">
+      <div class="delivery__type-description" ng-class="{'delivery__type-description--active': vm.formData.deliveryType==0}">
         <h3>Забрать заказ самостоятельно</h3>
         <div class="delivery__points">
           <div class="delivery__point">
-            <input id="dp1" name="delivery-point" type="radio" checked>
+            <input id="dp1" name="delivery-point" type="radio" ng-model="vm.formData.deliveryPoint" value="dp1">
             <label for="dp1">г. Пермь (Пермский край), ул. 25 Октября, 29</label>
             <span class="workload-chart">
               <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="delivery__point">
-            <input id="dp2" name="delivery-point" type="radio">
+            <input id="dp2" name="delivery-point" type="radio" ng-model="vm.formData.deliveryPoint" value="dp2">
             <label for="dp2">г. Пермь (Пермский край), ул. Маршала Рыбалко, 30</label>
             <span class="workload-chart">
               <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
@@ -88,7 +88,7 @@
             </div>
           </div>
           <div class="delivery__point">
-            <input id="dp3" name="delivery-point" type="radio">
+            <input id="dp3" name="delivery-point" type="radio" ng-model="vm.formData.deliveryPoint" value="dp3">
             <label for="dp3">г. Пермь (Пермский край), ул. Мира, 59</label>
             <span class="workload-chart">
               <div class="workload-chart__item workload-chart__item--high" data-workload="15.8"></div>
@@ -120,12 +120,12 @@
 Во всех пунктах Вы можете воспользоваться удобными примерочными.
 Если товар не подошёл, Вы можете сразу вернуть его менеджеру пункта самовывоза.</p>
       </div>
-      <div class="delivery__type-description">
+      <div class="delivery__type-description" ng-class="{'delivery__type-description--active': vm.formData.deliveryType==1}">
         <h3>Заказать доставку курьером по адресу</h3>
         <p class="delivery__additional-info">В случае указания полного адреса (этаж, подъезд, домофон или код), курьеру не нужно будет уточнять его дополнительно.</p>
         <button class="delivery__add-address-button" type="button">Добавить адрес</button>
       </div>
-      <div class="delivery__type-description">
+      <div class="delivery__type-description" ng-class="{'delivery__type-description--active': vm.formData.deliveryType==2}">
         <h3>Забрать заказ в постамате</h3>
         <button class="delivery__add-postamat-button" type="button">Добавить постамат</button>
         <p class="delivery__additional-info">Примерка отсутствует.</p>
@@ -140,11 +140,11 @@
     <table class="summary">
       <tr>
         <td class="summary__discount-title">Скидка постоянного покупателя:</td>
-        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+        <td class="summary__discount-value">{{vm.formData.beforePersonalDiscountSum - vm.formData.sum}} руб.</td>
       </tr>
       <tr>
-        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
-        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.beforeDiscountsSum}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.beforePersonalDiscountSum}} руб.</td>
       </tr>
       <tr>
         <td class="summary__delivery-title">Доставка:</td>
@@ -156,7 +156,7 @@
       </tr>
       <tr>
         <td class="summary__saving-title">Вы экономите:</td>
-        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+        <td class="summary__saving-value">{{vm.formData.beforeDiscountsSum - vm.formData.sum}} руб.</td>
       </tr>
     </table>
   </div>

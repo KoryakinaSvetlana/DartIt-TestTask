@@ -45,6 +45,11 @@
   background-color: @summary-background-color;
   border-left: 1px solid @promo-button-background-color;
   padding: 20px 10px;
+  cursor: pointer;
+
+  a {
+    display: block;
+  }
 
   span {
     display: block;
@@ -77,6 +82,7 @@
 
 .delivery__type-description {
   display: none;
+  padding-bottom: 30px;
 
   h3 {
     font-size: 16px;
@@ -182,13 +188,13 @@
   }
 
   .delivery__type-item {
-    width: auto;
+    width: 135px;
+    padding: 20px 25px;
     border-left: none;
     border-bottom: 1px solid @promo-button-background-color;
-    padding: 20px 25px;
+    box-sizing: border-box;
 
     &--active {
-      border-bottom: none;
       border-left: 3px solid @background-color-pink;
     }
 

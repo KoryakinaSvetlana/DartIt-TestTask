@@ -22,14 +22,14 @@
           <div class="goods-item__counter-and-price-wrapper">
             <div class="goods-item__counter counter">
               <span class="counter__wrapper">
-                <button class="counter__button" type="button" ng-click="item.decrease(); vm.formData.calcSum()">
+                <button class="counter__button" type="button" ng-click="item.decrease(); vm.calc()">
                   <span class="visually-hidden">Уменьшить количество</span>
                   <svg class="counter__button-icon counter__button-icon--minus" width="10px" height="10px">
                     <use xlink:href="#minus"></use>
                   </svg>
                 </button>
                 <input type="text" autocomplete="off" maxlength="2" value="{{item.count}}">
-                <button class="counter__button" type="button" ng-click="item.increase(); vm.formData.calcSum()">
+                <button class="counter__button" type="button" ng-click="item.increase(); vm.calc()">
                   <span class="visually-hidden">Увеличить количество</span>
                   <svg class="counter__button-icon counter__button-icon--plus" width="10px" height="10px">
                     <use xlink:href="#plus"></use>
@@ -99,11 +99,11 @@
     <table class="summary">
       <tr>
         <td class="summary__discount-title">Скидка постоянного покупателя:</td>
-        <td class="summary__discount-value">{{vm.formData.sumBeforePersonalDiscount - vm.formData.sum}} руб.</td>
+        <td class="summary__discount-value">{{vm.formData.beforePersonalDiscountSum - vm.formData.sum}} руб.</td>
       </tr>
       <tr>
-        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.sumBeforeDiscounts}} руб.</span></td>
-        <td class="summary__order-sum">{{vm.formData.sumBeforePersonalDiscount}} руб.</td>
+        <td>Сумма заказа: <span class="summary__real-price">{{vm.formData.beforeDiscountsSum}} руб.</span></td>
+        <td class="summary__order-sum">{{vm.formData.beforePersonalDiscountSum}} руб.</td>
       </tr>
       <tr>
         <td class="summary__delivery-title">Доставка:</td>
@@ -115,7 +115,7 @@
       </tr>
       <tr>
         <td class="summary__saving-title">Вы экономите:</td>
-        <td class="summary__saving-value">{{vm.formData.sumBeforeDiscounts - vm.formData.sum}} руб.</td>
+        <td class="summary__saving-value">{{vm.formData.beforeDiscountsSum - vm.formData.sum}} руб.</td>
       </tr>
     </table>
   </div>

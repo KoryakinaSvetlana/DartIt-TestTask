@@ -13,13 +13,18 @@
         vm.formData = {};
 
         vm.$onInit = activate;
+        vm.setPaymentType = setPaymentType;
 
         //methods
 
         function activate() {
             // get data from the parent component
             vm.formData = vm.parent.getData();
-            console.log('Address feature loaded!');
+            console.log('Payment loaded!');
+        }
+
+        function setPaymentType(paymentType) {
+          vm.formData.paymentType = paymentType;
         }
     }
 })();
