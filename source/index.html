@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/style.min.css" rel="stylesheet" />
   <title>Оформление заказа</title>
 </head>
 <body>
@@ -216,19 +216,19 @@
     // Picture element HTML5 shiv
     document.createElement( "picture" );
   </script>
-  <script src="app/lib/picturefill.min.js" async></script>
 
-  <!--vendor libraries-->
+  <!-- build:js app/vendor.js -->
+  <script src="app/lib/picturefill.min.js" async></script>
   <script src="app/lib/angular.min.js"></script>
   <script src="app/lib/angular-ui-router.min.js"></script>
+  <!-- endbuild -->
 
-  <!--application-->
+  <!-- build:js app/app.js -->
   <script src="app/app.module.js"></script>
   <script src="app/filters.js"></script>
 
   <script src="app/form/form.component.js"></script>
   <script src="app/form/form.controller.js"></script>
-  <script src="app/form/formData.value.js"></script>
 
   <script src="app/goods/goods.component.js"></script>
   <script src="app/goods/goods.controller.js"></script>
@@ -241,6 +241,7 @@
 
   <script src="app/model/orderItemModel.js"></script>
   <script src="app/model/orderModel.js"></script>
+  <!-- endbuild -->
 
 </body>
 </html>
